@@ -1,0 +1,5 @@
+    bk("Schematics" "<Key>7"		"simulator( 'hspiceD ) 
+                                         cv=hiGetCurrentWindow()->cellView 
+					 design( cv->libName cv->cellName cv->viewName ) 
+                                         createNetlist(?recreateAll t) 
+					 system(strcat(\"cat ./SIMULATION/\", cv->cellName, \"/hspiceD/schematic/netlist/netlistHeader ./SIMULATION/\", cv->cellName, \"/hspiceD/schematic/netlist/netlist > ./NETLIST/netlist_\", cv->cellName) ) ")
