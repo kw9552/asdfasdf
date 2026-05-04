@@ -1,0 +1,16 @@
+layoutOptimize.state	menuState	string	"None"
+asimenv showWhatsNew string "5.1.0"
+layout showWhatsNew string "5.1"
+ddserv showWhatsNew string "5.1"
+#ui infix boolean t
+ui undoLevel int 100
+
+spectre.envOpts cmd64bit boolean t
+
+asimenv.startup projectDir string "/user/hakjin.ka/simulation/A_KKW/01_UMC_150NM/DB6T89A0/NETLIST" ;; simulation path default
+
+;;spectre.outputs	simOutputFormat	string	"psf"
+;;spectre.opts multithread string "on"
+;;spectre.turboOpts uniMode string "APS"
+;;spectre.turboOpts apsplus boolean t
+adexl.testEditor adexlTestEditorSetupValidateMsg boolean nil
