@@ -1,0 +1,51 @@
+// VerilogA
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module DEC2BIN_TEST(V_IN, B_OUT);
+
+input V_IN;
+electrical V_IN;
+
+output [14:0] B_OUT;
+electrical [14:0] B_OUT;
+
+parameter real one = 1.0;
+parameter real zero = 0;
+
+parameter real td = 1n from (0:inf);
+parameter real tr = 1n from (0:inf);
+parameter real tf =1n from (0:inf);
+
+real out [14:0];
+
+integer dec;
+integer vth;
+integer i;
+
+analog begin
+          dec = V(V_IN);
+          for (i=14; i>=0; i=i-1)
+          begin
+               vth = pow(2,i);
+               if(dec>=vth)
+          begin
+                      out[i] = one;
+                      dec = dec-vth;
+           end
+
+           else
+           begin
+                      out[i] = zero;
+           end
+
+ end
+
+  generate i(14,0)
+  V(B_OUT[i]) <+ transition(out[i],td, tr, tf);
+
+end
+
+
+endmodule
